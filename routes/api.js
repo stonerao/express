@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var crypto = require('crypto');
 var MySql = require("../sql/index.js")
 var _SQL = require("../sql/sql.js")
 var _MSG = require("../util/msg")
