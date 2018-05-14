@@ -46,7 +46,12 @@
                         },
                         dataType: "json",
                         success: function (data) {
-
+                            if(data.code===200){
+                                localStorage.setItem("token", data.data.token);
+                                localStorage.setItem("time", data.data.date);
+                            }else{
+                                alert("登录失败")
+                            }
                         }
                     })
                 }
