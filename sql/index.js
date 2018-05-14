@@ -1,10 +1,10 @@
 /* config */
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: "test"
+    host: '47.98.160.248',
+    user: 'express',
+    password: 'Raoyan19940529',
+    database: "express"
 });
 module.exports = async (SQL, fun) => {
     connection.query(SQL, (err, rows, fields) => {
