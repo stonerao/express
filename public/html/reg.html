@@ -48,8 +48,8 @@
                 add() {
                     let _this = this;
                     $.ajax({
-                        method: "get",
-                        url: "/api/add_member",
+                        method: "post",
+                        url: "/api/pm2",
                         data: {
                             phone_number: _this.phone,
                             username: _this.username,

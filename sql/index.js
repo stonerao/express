@@ -6,9 +6,10 @@ var connection = mysql.createConnection({
     password: 'Raoyan19940529',
     database: "express"
 });
+connection.connect();
 module.exports = async (SQL, fun) => {
     connection.query(SQL, (err, rows, fields) => {
         if (err) throw err;
-        fun(rows)
+        fun(rows) 
     });
 }
