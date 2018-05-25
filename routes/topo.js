@@ -17,7 +17,15 @@ router.post('/save', function (req, res, next) {
 router.get('/info', function (req, res, next) {
     let body = req.body;
     MySql(`SELECT * FROM topo WHERE id='1';`, (data) => {
-        res.json(JSON.parse(data[0].json));
+        let obj;
+        if(JSON.parse(data[0].json)){
+            obj= JSON.parse(data[0].json);
+        }else{
+            obj={
+                code:400
+            }
+        }
+        res.json(obj);
         return
     }); 
 })
