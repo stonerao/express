@@ -8,7 +8,7 @@ const echarts = require('echarts');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  const canvas = new Canvas(parseInt(size.width,10), parseInt(size.height,10));
+  const canvas = new Canvas(500,500);
   const ctx = canvas.getContext('2d');
   ctx.font = '12px';
   echarts.setCanvasCreator(function () {
