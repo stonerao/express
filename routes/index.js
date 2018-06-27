@@ -8,7 +8,7 @@ const echarts = require('echarts');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  var option =  {
+  var options =  {
     xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
