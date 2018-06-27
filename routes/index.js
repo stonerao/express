@@ -34,7 +34,8 @@ router.get('/', function (req, res, next) {
  
     res.render('index', {
       img: chart.getConnectedDataURL(),
-      title:"echarts"
+      title:"echarts",
+      option:chart.getOption()
     });
  
   
