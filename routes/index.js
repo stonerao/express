@@ -35,10 +35,11 @@ router.get('/', function (req, res, next) {
   
   chart.setOption(options);
   // res.json({a:1})
-  res.json(chart.getOption())
-  // res.render('index', {
-  //   title: 'Express'
-  // });
+  // res.json(chart.getOption())
+  res.render('index', {
+    img: chart.getDataURL(),
+    title:"echarts"
+  });
   
 });
 router.get('/member', function (req, res, next) {
