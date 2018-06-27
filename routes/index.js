@@ -31,12 +31,12 @@ router.get('/', function (req, res, next) {
   chart.setOption(options);
   // res.json({a:1})
   // res.json(chart.getOption())
-  setTimeout(x=>{
+ 
     res.render('index', {
-      img: chart.getDataURL(),
+      img: chart.getConnectedDataURL(),
       title:"echarts"
     });
-  },300)
+ 
   
   
 });
