@@ -30,13 +30,13 @@ router.get('/', function (req, res, next) {
   const chart = echarts.init(canvas);  
   chart.setOption(options);
   // res.json({a:1})
-  // res.json(chart.getOption())
+  res.json(chart.getOption().series)
  
-    res.render('index', {
+   /*  res.render('index', {
       img: chart.getConnectedDataURL(),
       title:"echarts",
       option:chart.getOption()
-    });
+    }); */
  
   
   
