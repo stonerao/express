@@ -29,14 +29,15 @@ router.get('/', function (req, res, next) {
   });
   const chart = echarts.init(canvas);
   chart.setOption(options);
-  
+ 
   setTimeout(x => {
     // res.json(chart.getOption().series)
     // res.render('index', {
     //   img: chart.getDataURL(),
     //   title: "echarts" 
     // });
-     res.json({a: chart.getDataURL()})
+    var dataURL = canvas.toDataURL('image/jpeg')
+     res.json({a: dataURL})
   }, 1000);
 
 
