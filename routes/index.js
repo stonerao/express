@@ -8,38 +8,41 @@ const echarts = require('echarts');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  var options =  {
+  var options = {
     xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     },
     yAxis: {
-        type: 'value'
+      type: 'value'
     },
     series: [{
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'line'
+      data: [820, 932, 901, 934, 1290, 1330, 1320],
+      type: 'line'
     }]
-}
-  const canvas = new Canvas(500,500);
+  }
+  const canvas = new Canvas(500, 500);
   const ctx = canvas.getContext('2d');
   ctx.font = '12px';
   echarts.setCanvasCreator(function () {
     return canvas;
   });
-  const chart = echarts.init(canvas);  
+  const chart = echarts.init(canvas);
   chart.setOption(options);
   // res.json({a:1})
-  res.json(chart.getOption().series)
- 
-   /*  res.render('index', {
-      img: chart.getConnectedDataURL(),
-      title:"echarts",
-      option:chart.getOption()
-    }); */
- 
-  
-  
+  setTimeout(x => {
+    // res.json(chart.getOption().series)
+    res.render('index', {
+      img: chart.getDataURL(),
+      title: "echarts" 
+    });
+  }, 1000);
+
+
+  /* */
+
+
+
 });
 router.get('/member', function (req, res, next) {
   const SQL = 'SELECT * FROM member;'
@@ -48,7 +51,7 @@ router.get('/member', function (req, res, next) {
     password: "raoyan19940529",
     name: "ptt",
     phone_number: "18583671750"
-  }), (data) => { 
+  }), (data) => {
     if (data.affectedRows === 1) {
       MySql(SQL, (data) => {
         res.json(data);
@@ -56,7 +59,7 @@ router.get('/member', function (req, res, next) {
     } else {
       res.render(data)
     }
-  }) 
+  })
 })
 
 module.exports = router;
