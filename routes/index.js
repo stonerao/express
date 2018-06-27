@@ -21,7 +21,8 @@ router.get('/', function (req, res, next) {
   };
   
   chart.setOption(options);
-  res.json(chart.getOption())
+  res.json({a:1})
+  // res.json(chart.getOption())
   // res.render('index', {
   //   title: 'Express'
   // });
