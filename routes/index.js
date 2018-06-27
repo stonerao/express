@@ -27,19 +27,17 @@ router.get('/', function (req, res, next) {
   echarts.setCanvasCreator(function () {
     return canvas;
   });
-  const chart = echarts.init(canvas);
-  options.animation = false;
-  options.textStyle = { 
-    fontSize: 12,
-  };
-  
+  const chart = echarts.init(canvas);  
   chart.setOption(options);
   // res.json({a:1})
   // res.json(chart.getOption())
-  res.render('index', {
-    img: chart.getDataURL(),
-    title:"echarts"
-  });
+  setTimeout(x=>{
+    res.render('index', {
+      img: chart.getDataURL(),
+      title:"echarts"
+    });
+  },300)
+  
   
 });
 router.get('/member', function (req, res, next) {
