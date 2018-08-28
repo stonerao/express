@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="/js/vue.min.js"></script>
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <title>Document</title>
+    <title>登录</title>
 </head>
 
 <body>
@@ -39,18 +39,15 @@
                     let _this = this;
                     $.ajax({
                         method: "post",
-                        url: "/api/login",
+                        url: "/member/login",
                         data: { 
                             username: _this.username, 
                             password: _this.password
                         },
                         dataType: "json",
                         success: function (data) {
-                            if(data.code===200){
-                                localStorage.setItem("token", data.data.token);
-                                localStorage.setItem("time", data.data.date);
-                            }else{
-                                alert("登录失败")
+                            if(data.code==200){
+                                alert("登录成功")
                             }
                         }
                     })

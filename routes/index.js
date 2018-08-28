@@ -1,67 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var MySql = require("../sql/index.js")
-var _SQL = require("../sql/sql.js")
-const TABLE_NAME = 'member';
-const Canvas = require('canvas');
-const echarts = require('echarts');
-
+var MySql = require("../lib/index.js") 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  var options = {
-    xAxis: {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [{
-      data: [820, 932, 901, 934, 1290, 1330, 1320],
-      type: 'line'
-    }]
-  }
-  const canvas = new Canvas(500, 500);
-  const ctx = canvas.getContext('2d');
-  ctx.font = '12px';
-  echarts.setCanvasCreator(function () {
-    return canvas;
-  });
-  const chart = echarts.init(canvas);
-  chart.setOption(options);
- 
-  setTimeout(x => {
-    // res.json(chart.getOption().series)
-    // res.render('index', {
-    //   img: chart.getDataURL(),
-    //   title: "echarts" 
-    // });
-    var dataURL = canvas.toDataURL('image/jpeg')
-     res.json({a: dataURL})
-  }, 1000);
+  res.send("<h1>hello word</h1>")
 
-
-  /* */
-
-
-
-});
-router.get('/member', function (req, res, next) {
-  const SQL = 'SELECT * FROM member;'
-  MySql(_SQL.INSERT({
-    username: "stonerao",
-    password: "raoyan19940529",
-    name: "ptt",
-    phone_number: "18583671750"
-  }), (data) => {
-    if (data.affectedRows === 1) {
-      MySql(SQL, (data) => {
-        res.json(data);
-      })
-    } else {
-      res.render(data)
-    }
-  })
-})
-
+}); 
 module.exports = router;
